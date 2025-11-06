@@ -17,7 +17,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x' # Change to your .NET version if needed
+          dotnet-version: '8.0.x' # Change to .NET version if needed
 
       - name: Restore dependencies
         run: dotnet restore
@@ -53,6 +53,6 @@ jobs:
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'YOUR_AZURE_WEBAPP_NAME' # 👈 Replace this with your App Service name
+          app-name: 'YOUR_AZURE_WEBAPP_NAME' # Replace with App Service name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
