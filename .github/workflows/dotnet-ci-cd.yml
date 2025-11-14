@@ -7,6 +7,10 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
     inputs:
+      custom_message:
+        description: ''
+        required: true
+        type: string        
       environment:
         description: "Environment to deploy to"
         required: true
@@ -19,7 +23,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      - name: Run a one-line script
+        run: echo ${{ input.custom_message }}
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
